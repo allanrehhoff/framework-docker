@@ -4,7 +4,7 @@ A docker build for my `allanrehhoff/framework` project.
 
 This project aims to test and verify compaitiblity with nginx webserver.  
 
-**TODO:**
+**TODO:**  
 ✅ docker base  
 ✅ nginx  
 ❌ PHP8.2   
