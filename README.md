@@ -8,7 +8,7 @@ This project aims to test and verify compaitiblity with nginx webserver.
 ✅ docker base  
 ✅ nginx  
 ✅ PHP-FPM  
-✅ MySQL
-❌ PHPUunit
+✅ MySQL  
+❌ PHPUunit  
 ❌ OpenSSH  
 ❌ Clone framework content to /app  
