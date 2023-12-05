@@ -1,5 +1,13 @@
 version: '3'
 
+x-env: &env
+  environment:
+    - MYSQL_ROOT_PASSWORD # required by mysql
+    - MYSQL_HOST
+    - MYSQL_USER
+    - MYSQL_PASSWORD
+    - MYSQL_DATABASE
+
 services:
   nginx:
     container_name: nginx
@@ -16,6 +24,7 @@ services:
     networks:
       - app-network
   php:
+    <<: *env
     container_name: php
     build:
       context: ./docker/php/
@@ -26,13 +35,12 @@ services:
     networks:
       - app-network
   mysql:
+    <<: *env
     container_name: mysql
-    environment:
-    - MYSQL_ROOT_USER
-    - MYSQL_ROOT_PASSWORD
-    - MYSQL_DATABASE
+    volumes:
+      - mysql:/var/lib/mysql
     ports:
-      - ":3306"
+      - "3306:3306"
     build:
       context: ./docker/mysql/
     networks:
@@ -40,3 +48,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  mysql:
