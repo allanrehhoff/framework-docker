@@ -1,7 +1,7 @@
 # Dockerfile for Nginx
 
 # Use the official Nginx image as the base image
-FROM nginx:latest
+FROM nginx:1.25
 
 # Copy the custom Nginx configuration file to the container
 COPY ./nginx.conf /etc/nginx/nginx.conf
